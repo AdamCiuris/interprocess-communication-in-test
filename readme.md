@@ -2,7 +2,7 @@
 
 Welcome to my answer for a Bently Nevada take home challenge.
 
-I was asked to questions about testing and I chose to implement them in java.
+I was asked to answer questions about testing, and I chose to implement them in java.
 
 <h3>How it proves that rack/monitoring is working correctly.</h3>
 
