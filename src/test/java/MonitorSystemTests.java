@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import static org.Ciuris.Sys.ReadRelayState;
@@ -33,7 +35,9 @@ public class MonitorSystemTests {
      */
     @BeforeEach
     void setup()  { // runs once
-        ProcessBuilder builder = new ProcessBuilder("java", "-jar", "D:\\0code\\baker\\simulatorTests\\src\\test\\java\\System.jar");
+        Path filepath = Paths.get("").toAbsolutePath(); // begin relative file path build
+        filepath = Paths.get(filepath+ "\\src\\test\\java\\" + "System.jar"); // end relative filepath
+        ProcessBuilder builder = new ProcessBuilder("java", "-jar", filepath.toString());
         pro = null;
         try{
             pro = builder.start();
