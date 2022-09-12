@@ -27,8 +27,7 @@ public class MonitorSystemTests {
     InputStreamReader inr;
 
     protected Process pro;
-    ArrayList<Character> inputs = new ArrayList<>();
-    String inputString = "";
+    String inputString = ""; // used to accept output from process
 
     /**
      * Create process and begin setup for api communication
@@ -55,8 +54,8 @@ public class MonitorSystemTests {
      */
     @AfterEach
     void teardown() {
-        inputs.clear();
         pro.destroyForcibly();
+        inputString = "";
     }
 
     /**
@@ -95,11 +94,7 @@ public class MonitorSystemTests {
         Thread.sleep(1000); // have to wait for reply from process, I'm sure there's a much more elegant way to do this.
         while(inr.ready()) {
             char b =(char) inr.read();
-            inputs.add(b);
-        }
-        for (char c: inputs
-        ) {
-            inputString += c;
+            inputString += b;
         }
         // END API READ/WRITE
 
@@ -120,11 +115,7 @@ public class MonitorSystemTests {
         Thread.sleep(1000);
         while(inr.ready()) {
             char b =(char) inr.read();
-            inputs.add(b);
-        }
-        for (char c: inputs
-        ) {
-            inputString += c;
+            inputString += b;
         }
         inputString = inputString.replaceAll("\\n|\\r\\n", ""); // handles weird new line errors, could cause problems with faulty new lines
         // END API READ/WRITE
@@ -145,11 +136,7 @@ public class MonitorSystemTests {
         Thread.sleep(1000);
         while(inr.ready()) {
             char b =(char) inr.read();
-            inputs.add(b);
-        }
-        for (char c: inputs
-        ) {
-            inputString += c;
+            inputString += b;
         }
         inputString = inputString.replaceAll("\\n|\\r\\n", ""); // handles weird new line errors, could cause problems with faulty new lines
         // END API READ/WRITE
@@ -170,11 +157,7 @@ public class MonitorSystemTests {
         Thread.sleep(1000);
         while(inr.ready()) {
             char b =(char) inr.read();
-            inputs.add(b);
-        }
-        for (char c: inputs
-        ) {
-            inputString += c;
+            inputString += b;
         }
         // END API READ/WRITE
 
